@@ -45,7 +45,7 @@ public class SampleServlet extends HttpServlet {
     	SqlSession sqlSession =DataSource.getInstance().openSession(true);
     	StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
     	
-    	out.println("<b>Hello한글도 처리가 됩니다. 장비를 정지합니다.</b>");
+    	out.println("<b>Hello 장비를 정지합니다.</b>");
     	List<StudentVO> list = mapper.studentList();
     	
     	out.print("");
