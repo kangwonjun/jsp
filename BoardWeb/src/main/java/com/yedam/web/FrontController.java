@@ -18,9 +18,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.yedam.commom.Control;
 import com.yedam.control.AddBoardControl;
 import com.yedam.control.BoardListControl;
+import com.yedam.control.DeleteBoard;
 import com.yedam.control.StudentListControl;
 import com.yedam.control.board;
 import com.yedam.control.boardForm;
+import com.yedam.control.ModifyBoard;
+import com.yedam.control.RemoveBoard;
+import com.yedam.control.UpdateBoard;
 
 public class FrontController extends HttpServlet{
 	
@@ -35,13 +39,21 @@ public class FrontController extends HttpServlet{
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/boardList.do", new BoardListControl());
+		
 		//글등록 구현 : 등록화면(boardForm.do) + DB등록(addBoard.do) -> 글목록페이지들
-		map.put("/boardForm.do", new boardForm());
-		map.put("/addBoard.do", new AddBoardControl());
+		map.put("/boardForm.do", new boardForm());// 글 생성 화면
+		map.put("/addBoard.do", new AddBoardControl());// 글 추가 기능
+		map.put("/board.do", new board());// 상세화면
+		
 		//학생목록
 		map.put("/stdList.do", new StudentListControl());
-		map.put("/board.do", new board());
-		
+				
+		//삭제
+		map.put("/removeBoard.do", new RemoveBoard()); //삭제화면
+		map.put("/deleteBoard.do", new DeleteBoard()); //삭제처리
+		//수정
+		map.put("/modifyBoard.do", new ModifyBoard()); //수정화면
+		map.put("/updateBoard.do", new UpdateBoard()); //수정처리
 	}
 	
 	@Override

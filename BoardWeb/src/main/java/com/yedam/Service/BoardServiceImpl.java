@@ -9,6 +9,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.commom.DataSource;
+import com.yedam.commom.SearchVO;
 import com.yedam.mapper.BoardMapper;
 import com.yedam.vo.BoardVO;
 
@@ -23,8 +24,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardVO> boardList() {
-		return mapper.selectList();
+	public List<BoardVO> boardList(SearchVO search) {
+//		return mapper.selectList();
+		return mapper.selectListPaging(search);
 	}
 
 	@Override
@@ -40,6 +42,11 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public boolean removeBoard(int boardNo) {
 		return mapper.delectBoard(boardNo) == 1;
+	}
+
+	@Override
+	public int totalCount(SearchVO searchVO) {
+		return mapper.selectTotalCount(searchVO);
 	}
 
 }

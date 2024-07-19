@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../includes/header.jsp"%>
 <h3>등록화면</h3>
-<form action="addBoard">
+<form action="addBoard.do">
 <table class="table">
 	<tr>
 		<th>제목</th>

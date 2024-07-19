@@ -15,6 +15,55 @@
 		order by board_no
 	</select>
 
+
+	<!-- 페이지 목록. -->
+	<select id="selectListPaging" parameterType="com.yedam.commom.SearchVO" resultType="com.yedam.vo.BoardVO">
+		select b.*
+		from (select rownum rn, a.*
+		from(SELECT *
+		from tbl_board
+		where
+		<choose>
+		 <when test="searchCondition == 'T'.toString() ">
+		 title like '%'|| #{keyword} ||'%'
+		 </when>
+		 <when test="searchCondition == 'W'.toString() ">
+		  title like '%'|| #{keyword} ||'%'
+		 </when>
+		 
+		 <when test="searchCondition == 'TW'.toString()">
+		  title like '%'|| #{keyword} ||'%' or writer like '%'|| #{keyword} ||'%'
+		 </when>
+		 <otherwise>1 = 1</otherwise>
+		</choose>
+		order by board_no ) a ) b
+		where b.rn > (#{page}-1) * 5
+		<![CDATA[
+		and b.rn <=(#{page} * 5) 
+		]]>
+	</select>
+	
+	<select id="selectTotalCount" parameterType="com.yedam.commom.SearchVO">
+		select count(1)
+		from tbl_board
+		where
+		<choose>
+		 <when test="searchCondition == 'T'.toString() ">
+		 title like '%'|| #{keyword} ||'%'
+		 </when>
+		 <when test="searchCondition == 'W'.toString() ">
+		  title like '%'|| #{keyword} ||'%'
+		 </when>
+		 
+		 <when test="searchCondition == 'TW'.toString()">
+		  title like '%'|| #{keyword} ||'%' or writer like '%'|| #{keyword} ||'%'
+		 </when>
+		 <otherwise>1 = 1</otherwise>
+		</choose>
+	</select>
+	
+
+
 	<insert id="insertBoard" parameterType="com.yedam.vo.BoardVO">
 		insert into tbl_board
 		(board_no, title, writer, content)
@@ -49,8 +98,10 @@
 		,view_cnt
 		,write_date
 		from tbl_board
-		where board_no = #{boardNo}
+		where board_no =
+		#{boardNo}
 	</select>
+	<!--  -->
 
 
 

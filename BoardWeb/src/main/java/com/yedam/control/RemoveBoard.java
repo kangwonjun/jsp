@@ -8,23 +8,20 @@ import com.yedam.Service.BoardServiceImpl;
 import com.yedam.commom.Control;
 import com.yedam.vo.BoardVO;
 
-public class board implements Control {
+public class RemoveBoard implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		String bno = req.getParameter("bno");
-		
-		
+
 		BoardService svc = new BoardServiceImpl();
 		BoardVO board = svc.getBoard(Integer.parseInt(bno));
-		
+
 		req.setAttribute("board", board);
-		
-		req.getRequestDispatcher("WEB-INF/jsp/board.jsp")
-		.forward(req, resp); //페이지 재지정
-		
-		
+
+		req.getRequestDispatcher("WEB-INF/jsp/removeForm.jsp")
+		.forward(req, resp); // 페이지 재지정
+
 	}
 
-	
 }
