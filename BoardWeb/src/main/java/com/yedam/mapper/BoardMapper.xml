@@ -55,7 +55,7 @@
 
 	<insert id="insertBoard" parameterType="com.yedam.vo.BoardVO">
 		insert into tbl_board
-		(board_no, title, writer, content)
+		(board_no, title, writer, content, image)
 		values(board_seq.nextval,#{title},#{writer}, #{content}, #{image} )
 	</insert>
 
@@ -85,9 +85,10 @@
 		,writer
 		,view_cnt
 		,write_date
-		from tbl_board
-		where board_no =
-		#{boardNo}
+		,image
+		
+	from tbl_board
+	where board_no = #{boardNo}	
 	</select>
 	<!--  -->
 	

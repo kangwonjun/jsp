@@ -27,9 +27,14 @@
 			<td colspan="3">${board.writer }</td>
 		</tr>
 		<tr>
+			<th>파일</th>
+			<td colspan="3"><img width="250px" src "images/${board.image}}"></td>
+		</tr>
+		<tr>
 			
-
+		
 			<td colspan="4" align="center">
+		<c:choose>
 			<c:when test="${logid == board.writer }">
 				<input class="btn btn-danger" type="submit" value="삭제화면">
 				<button class="btn btn-warning" type="button">수정화면</button>
@@ -37,7 +42,8 @@
 			<c:otherwise>
 				<input class="btn btn-danger" type="submit" value="삭제화면">
 				<button class="btn btn-warning" type="button">수정화면</button>		
-			</c:otherwise>	
+			</c:otherwise>
+		</c:choose>		
 			</td>
 		</tr>
 

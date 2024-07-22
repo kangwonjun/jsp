@@ -14,7 +14,7 @@
 	</tr>
 	<tr>
 		<th>작성자</th>
-		<td><input class="form-control"  readonly type="text" name="writer"></td>
+		<td><input class="form-control"  readonly type="text" name="writer" value="${logid }"></td>
 	</tr>
 	<tr>
 		<th>파일</th>

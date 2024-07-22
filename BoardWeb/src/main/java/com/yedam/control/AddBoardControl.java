@@ -41,8 +41,8 @@ public class AddBoardControl implements Control {
 		brd.setTitle(title);
 		brd.setImage(image);
 		
-		BoardService svc = new BoardServiceImpl();
-		if (svc.addBoard(svo)) { 
+		BoardServiceImpl svc = new BoardServiceImpl();
+		if (svc.addBoard(brd)) { 
 			// 목록이동.
 			resp.sendRedirect("boardList.do");
 		}
