@@ -92,7 +92,7 @@
 		<!-- next 페이지. -->
 		<% if (paging.isNext()) { %>
 		<li class="page-item"><a class="page-link"
-			href="boardList.do?page=<%=paging.getEndpage()+1  %> "
+			href="boardList.do?searchcondition=<%=paging.getEndpage()+1  %>">
 			aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 		</a></li>
 		<% } %>
@@ -100,4 +100,4 @@
 </nav>
 <!-- 페이지 부분. -->
 <%@ include file="../includes/footer.jsp"%>
-&searchCondition=<%=searchVO.getSearchsearchCondition() %>&keyword=<%=searchVO.getKeyword()%>
+&searchCondition=<%=SearchVO.getSearchsearchCondition() %>&keyword=<%=SearchVO.getKeyword()%>

@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.commom.Control;
+import com.yedam.control.ActionControl;
 import com.yedam.control.AddBoardControl;
 import com.yedam.control.BoardListControl;
 import com.yedam.control.DeleteBoard;
@@ -47,6 +48,8 @@ public class FrontController extends HttpServlet{
 		
 		//학생목록
 		map.put("/stdList.do", new StudentListControl());
+		//태그연습
+		map.put("/action.do", new ActionControl());
 				
 		//삭제
 		map.put("/removeBoard.do", new RemoveBoard()); //삭제화면
