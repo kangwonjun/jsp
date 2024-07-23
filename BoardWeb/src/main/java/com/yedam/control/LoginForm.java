@@ -9,7 +9,7 @@ public class LoginForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		req.getRequestDispatcher("WEB-INF/jsp/loginForm.jsp")
+		req.getRequestDispatcher("board/loginForm.tiles")
 				.forward(req, resp);
 	}
 	

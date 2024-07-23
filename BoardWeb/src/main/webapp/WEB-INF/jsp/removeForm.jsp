@@ -1,7 +1,6 @@
 <%@page import="com.yedam.vo.BoardVO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>	
-<%@ include file="../includes/header.jsp"%>
 <h3>삭제화면</h3>
 <form action="deleteBoard.do">
 <input type="hidden" name="bno" value="${board.boardNo }">
@@ -35,4 +34,3 @@
 
 	</table>
 </form>
-<%@ include file="../includes/footer.jsp"%>

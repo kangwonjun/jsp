@@ -39,14 +39,11 @@ public class BoardListControl implements Control {
 		
 		req.setAttribute("paging", pageDTO);
 		req.setAttribute("search", search);
-		req.getRequestDispatcher("WEB-INF/jsp/boardList.jsp")
-		.forward(req, resp); // 페이지 재지정.
 		req.setAttribute("searchCondition",sc);
 		req.setAttribute("keyword",kw);
-		
-		
 		req.setAttribute("boardList", list);
-		req.getRequestDispatcher("WEB-INF/jsp/boardList.jsp")
+		
+		req.getRequestDispatcher("board/boardList.tiles")
 		.forward(req, resp); // 페이지 재지정.
 
 	}

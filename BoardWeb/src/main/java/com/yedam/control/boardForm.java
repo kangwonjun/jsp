@@ -10,7 +10,8 @@ public class boardForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		req.getRequestDispatcher("WEB-INF/jsp/boardForm.jsp")
+		
+		req.getRequestDispatcher("board/boardForm.tiles")
 		.forward(req, resp); //페이지 재지정
 	}
 
