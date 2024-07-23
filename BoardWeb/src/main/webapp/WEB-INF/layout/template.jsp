@@ -15,8 +15,7 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
-      <div class="d-flex" id="wrapper">
-           
+      <div class="d-flex" id="wrapper">    
             <tiles:insertAttribute name="menu"/> <!-- 메뉴 부분 -->
             <!-- Page content wrapper-->
             <div id="page-content-wrapper">

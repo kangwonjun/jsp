@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"prefix="c" %>    
-            
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"prefix="c" %>               
 <div class="border-end bg-white" id="sidebar-wrapper">
             <c:choose>
               <c:when test="${empty logid }">
@@ -11,7 +10,6 @@
               		<div class="sidebar-heading border-bottom bg-light">Start Bootstrap${logid }</div>
               </c:otherwise>
             </c:choose>
-                <div class="sidebar-heading border-bottom bg-light">Start Bootstrap(Guest/logid)</div>
                 <div class="sidebar-heading border-bottom bg-light">Start Bootstrap(Guest/logid)</div>
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="boardList.do">게시글 목록</a>

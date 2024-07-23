@@ -23,6 +23,7 @@ import com.yedam.control.DeleteBoard;
 import com.yedam.control.LoginControl;
 import com.yedam.control.LoginForm;
 import com.yedam.control.LogoutControl;
+import com.yedam.control.MemberListControl;
 import com.yedam.control.ModifyBoard;
 import com.yedam.control.RemoveBoard;
 import com.yedam.control.StudentListControl;
@@ -53,6 +54,10 @@ public class FrontController extends HttpServlet{
 		map.put("/stdList.do", new StudentListControl());
 		//태그연습
 		map.put("/action.do", new ActionControl());
+		
+		
+		//관리자가 사용하는 기능들 
+		map.put("/memberList.do", new MemberListControl());
 				
 		//삭제
 		map.put("/removeBoard.do", new RemoveBoard()); //삭제화면
