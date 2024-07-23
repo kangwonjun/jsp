@@ -1,53 +1,46 @@
 package com.yedam.commom;
 
-import org.apache.ibatis.session.SqlSession;
-
-import com.yedam.Service.BoardService;
-import com.yedam.Service.BoardServiceImpl;
-import com.yedam.mapper.BoardMapper;
-import com.yedam.vo.BoardVO;
-
-
+import com.yedam.common.SearchDTO;
+import com.yedam.service.BoardService;
+import com.yedam.service.BoardServiceImpl;
 
 public class AppTest {
-
 	public static void main(String[] args) {
 		BoardService svc = new BoardServiceImpl();
-		SearchVO search = new SearchVO();
-		search.setSearchCondition("WT");
-		search.setKeyword("웹");
+		
+		SearchDTO search = new SearchDTO();
+		search.setSearchCondition("W");
+		search.setKeyword("user");
 		search.setPage(1);
-		
-		
-		
 		svc.boardList(search).forEach(System.out::println);
-		System.out.println("- END -");
 		
+//		svc.boardList(5).forEach(System.out::println);
 		
-		
-		
-//		SqlSession sqlSession = //
-//				DataSource.getInstance().openSession();
-//		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+		/* mapper 가져오기
+		SqlSession sqlSession = DataSource.getInstance().openSession(true);
+		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
 		
 //		BoardVO brd = new BoardVO();
-//		brd.setTitle("돼지");
-//		brd.setContent("돼지국밥");
-//		brd.setWriter("pig");
+//		brd.setTitle("메퍼테스트");
+//		brd.setContent("조건이 제대로 되는지");
+//		brd.setWriter("newbie");
 //		brd.setBoardNo(5);
-//		
-//		if(mapper.delectBoard(19) == 1) {
-//			System.out.println("삭제완료");
+		
+//		if(mapper.insertBoard(brd) == 1) {
+//			System.out.println("OK");
 //		}
 		
-//		if(mapper.updateBoard(brd) == 1){
-//			System.out.println("ok");
+//		if(mapper.updateBoard(brd) == 1) {
+//			System.out.println("OK");
 //		}
 		
+//		mapper.deleteBoard(5);
 		
-//		mapper.selectList()//
-//		.forEach(board ->System.out.println(board.toString()));
-//		
-		
-	}	
-}	
+//		mapper.selectList().forEach(board -> System.out.println(board.toString()));
+
+		BoardVO bvo = mapper.selectBoard(6);
+		System.out.println(bvo.getTitle());
+		*/
+		System.out.println("-= End =-");
+	}
+}

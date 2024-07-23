@@ -1,51 +1,48 @@
 package com.yedam.control;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yedam.Service.BoardService;
-import com.yedam.Service.BoardServiceImpl;
-import com.yedam.commom.Control;
-import com.yedam.commom.PageDTO;
-import com.yedam.commom.SearchVO;
+import com.yedam.common.Control;
+import com.yedam.common.PageDTO;
+import com.yedam.common.SearchDTO;
+import com.yedam.service.BoardService;
+import com.yedam.service.BoardServiceImpl;
 import com.yedam.vo.BoardVO;
 
 public class BoardListControl implements Control {
 
 	@Override
-	public void exec(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String page = req.getParameter("page");
 		page = page == null ? "1" : page;
-		String sc =req.getParameter("searchCondition");
-		String kw =req.getParameter("keyword");
+		String sc = req.getParameter("searchCondition");
+		String kw = req.getParameter("keyword");
 		
-		SearchVO search = new SearchVO();
+		SearchDTO search = new SearchDTO();
 		search.setKeyword(kw);
 		search.setPage(Integer.parseInt(page));
 		search.setSearchCondition(sc);
 		
-		
 		req.setAttribute("myName", "홍길동");
+		
 		BoardService svc = new BoardServiceImpl();
-		List<BoardVO> list =  svc.boardList(search);
+		
+		List<BoardVO> list = svc.boardList(search);
 		req.setAttribute("boardList", list);
 		
-		
-		//paging
+		// paging
 		int totalCnt = svc.totalCount(search);
-		PageDTO pageDTO = new PageDTO(Integer.parseInt(page),totalCnt);
-		
+		PageDTO pageDTO = new PageDTO(Integer.parseInt(page), totalCnt);
 		req.setAttribute("paging", pageDTO);
-		req.setAttribute("search", search);
-		req.setAttribute("searchCondition",sc);
-		req.setAttribute("keyword",kw);
-		req.setAttribute("boardList", list);
+		req.setAttribute("searchCondition", sc);
+		req.setAttribute("keyword", kw);
 		
-		req.getRequestDispatcher("board/boardList.tiles")
-		.forward(req, resp); // 페이지 재지정.
-
+		req.getRequestDispatcher("board/boardList.tiles").forward(req, resp);
 	}
 
 }

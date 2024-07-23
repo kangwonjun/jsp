@@ -8,8 +8,8 @@
     </encoder>
   </appender>
 
-  <logger name="com.yedam.mapper.BlogMapper">
-    <level value="trace"/>
+  <logger name="com.yedam.mapper.BoardMapper">
+    <level value="debug"/>
   </logger>
   <root level="error">
     <appender-ref ref="stdout"/>
