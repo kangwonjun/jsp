@@ -11,6 +11,12 @@
     and   member_pw = #{pw}
   </select>
   
+  <select id="selectMembers" resultType="com.yedam.vo.MemberVO">
+  	SELECT * 
+	FROM tbl_member
+	where  responsibility = 'User' 
+  </select>
+  
   <select id="studentList" resultType="student">
     select *
     from tbl_student
