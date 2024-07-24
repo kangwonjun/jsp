@@ -38,4 +38,12 @@
   <definition name="WILDCARD:admin/*" extends="myapp.admin">
     <put-attribute name="body" value="/WEB-INF/jsp/admin/{1}.jsp" /> <!-- {1}: WINLDCARD를 받음 -->
   </definition>
+  
+  <definition name="WILDCARD:*/*" extends="myapp.user">
+    <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}.jsp" /> 
+  </definition>
+  
+  
+  
+  
 </tiles-definitions>

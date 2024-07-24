@@ -23,6 +23,7 @@ import com.yedam.control.LoginForm;
 import com.yedam.control.LogoutControl;
 import com.yedam.control.MemberListControl;
 import com.yedam.control.ModBoardControl;
+import com.yedam.control.ScriptControl;
 import com.yedam.control.StudentListControl;
 import com.yedam.control.UpdateBoard;
 
@@ -56,6 +57,10 @@ public class FrontController extends HttpServlet {
 		
 		// 관리자가 사용하는 기능들.. ex)회원목록
 		map.put("/memberList.do", new MemberListControl());
+		
+		
+		//자바스크립트연습
+		map.put("/javascript.do", new ScriptControl());
 		
 		// 학생목록
 		map.put("/stdList.do", new StudentListControl());
