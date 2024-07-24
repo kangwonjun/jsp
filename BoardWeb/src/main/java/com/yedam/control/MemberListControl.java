@@ -18,17 +18,14 @@ public class MemberListControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		List<MemberVO> memberList = new ArrayList<MemberVO>();
 		MemberService memberService = new MemberServiceImpl();
+		List<MemberVO> memberList = new ArrayList<MemberVO>();
 		memberList = memberService.getMemberList();
 		
 		
 		
 		//paging
-		req.setAttribute("memId", memberList);
-		req.setAttribute("memPw", memberList);
-		req.setAttribute("memNm", memberList);
-		req.setAttribute("responsibility", memberList);
+		req.setAttribute("members", memberList);
 		
 		
 		req.getRequestDispatcher("admin/memberList.tiles").forward(req, resp);	

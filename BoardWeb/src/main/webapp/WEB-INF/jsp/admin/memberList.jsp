@@ -5,6 +5,7 @@
 <table class="table table-dark table-hover">
 	<thead>
 		<tr>
+			<th>#</th>
 			<th>아이디</th>
 			<th>비밀번호</th>
 			<th>이름</th>
@@ -12,13 +13,13 @@
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach var="member" items="${mambers}" varStatus="stat">
+		<c:forEach var="member" items="${members}" varStatus="stat">
 			<tr>
 				<th scope="row">${stat.count }</th>
-				<td>${member.memberId }</td>
-				<td>${member.memberPw }</td>
-				<td>${member.memberNm }</td>
-				<td>${member.responsibility }</td>
+				<td>${member.memberId}</td>				
+				<td>${member.memberPw}</td>
+				<td>${member.memberNm}</td>
+				<td>${member.responsibility}</td>
 			</tr>
 		</c:forEach>
 	</tbody>
