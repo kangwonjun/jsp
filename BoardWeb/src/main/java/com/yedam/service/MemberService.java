@@ -12,4 +12,5 @@ public interface MemberService {
 	//학생목록조회.
 	List<StudentVO> studentList();
 	boolean removeStudent(String sno);
+	boolean addStudent(StudentVO svo);
 }

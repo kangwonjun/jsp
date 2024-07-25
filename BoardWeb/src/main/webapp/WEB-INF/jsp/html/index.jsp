@@ -14,7 +14,7 @@
 		</tr>
 		<tr>
 			<th>연락처</th>
-			<td><input type="text" class="form-control" id="height"></td>
+			<td><input type="text" class="form-control" id="phone"></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center">

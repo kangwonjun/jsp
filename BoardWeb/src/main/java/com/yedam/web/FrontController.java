@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.yedam.common.Control;
 import com.yedam.control.ActionControl;
 import com.yedam.control.AddBoardControl;
+import com.yedam.control.AddStudent;
 import com.yedam.control.BoardControl;
 import com.yedam.control.BoardForm;
 import com.yedam.control.BoardListControl;
@@ -69,6 +70,9 @@ public class FrontController extends HttpServlet {
 		
 		//학생정보(학번기준 삭제.)
 		map.put("/removeStudent,do", new RemoveStudent());
+		
+		//등록.
+		map.put("/addStudent.do", new AddStudent());
 		
 		// 학생목록
 		map.put("/stdList.do", new StudentListControl());

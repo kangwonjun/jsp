@@ -34,4 +34,9 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.deleteStudent(sno) == 1;
 	}
 
+	@Override
+	public boolean addStudent(StudentVO svo) {
+		return mapper.insertStudent(svo) == 1;
+	}
+
 }
