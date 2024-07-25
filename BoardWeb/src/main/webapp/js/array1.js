@@ -1,11 +1,30 @@
 /**
  *  array1.js
  */
+//thead에 있는 체크박스 이벤트 등록
+document.querySelector('div.container-fluid >table>thead input[type="checkbox"]')//
+.addEventListener('change',changeFnc);
+
+function changeFnc(e){
+	//찾으려는 대상 체크박스.
+	document.querySelectorAll('div.container-fluid >table>tbody input[type="checkbox"]')//
+	.forEach(function(item){
+		console.log(item);
+	})
+}
 
 //수정 버튼에 클릭이벤트.
-//document.getElementById('modBtn').addEventListener('click',funtion(e){
+document.getElementById('modBtn').addEventListener('click',modBtnFnc );
+//modBtnFnc 이벤트 핸들러.
+function modBtnFnc(e){
 	
-//})
+	document.querySelectorAll().forEach(function(e){
+		if(tr.children[0].innerHTML == document.querySelector('#fname').value){
+		   tr.children[1].innerHTML == document.querySelector('#faddress');
+		   tr.children[2].innerHTML == document.querySelector('#height');
+		}
+	})
+}
 
 
 const friends = [
@@ -23,7 +42,10 @@ function makeList(){
 	})
 }
 //등록 버튼에 클릭 이벤트 추가
-document.getElementById('addBtn').addEventListener('click',function(e){
+document.getElementById('addBtn').addEventListener('click',addBtnFnc);
+
+//addBtnFnc 이벤트핸들러
+function addBtnFnc(e){
 	let name = document.getElementById('fname').value;
 	let address = document.getElementById('faddress').value;
 	let height = document.getElementById('height').value;
@@ -40,32 +62,52 @@ document.getElementById('addBtn').addEventListener('click',function(e){
 	fname.value='';
 	faddress.value='';
 	document.getElementById('height').value ='';
-});
+};
 
+
+function detailCallback(e){
+	e.stopPropagation();
+	console.log(e.target.parentElement);
+	let tr = e.target.parentElement; // 이벤트 대상으로 tr영역을 찾아야함.
+	//this : 1)함수영역에서 window 2) 이벤트 대상 3)객체에서는 객체.
+	tr = this;
+	document.getElementById('fname').value = tr.children[0].innerHTML;
+	document.getElementById('faddress').value = tr.children[1].innerHTML;
+	document.getElementById('height').value = tr.children[2].innerHTML;
+}
+
+
+
+
+
+
+
+
+//friend => tr 생성
 function makeTr(friend = {name:'Hong',address: 'Seoul',height:170}){
-	function detailCallback(e){
-		fname.value = friend.name;
-		faddress.value = friend.address;
-		document.getElementById('height') = friend.height;
-	}
+	
 	//tr 만드는 부분
 	let tr = document.createElement('tr');
+	tr.addEventListener('click',detailCallback, false);
 	
-	tr.addEventListener('click',detailCallback);
 	
 	for(let prop in friend){
 		let td = document.createElement('td');
 		td.innerHTML = friend[prop];
 		tr.appendChild(td);
 	}
+	
+	
+	
 	//삭제버튼
 	let td = document.createElement('td');
 	let btn = document.createElement('button');
 	btn.setAttribute('class', 'btn btn-danger'); // <button>삭제</button>
 	btn.addEventListener(`click`, function(e) {
 		console.log(e);
+		e.stopPropagation(); //click : button > td > tr > table....
 		e.target.parentElement.parentElement.remove();
-	});
+	},false);
 	btn.innerHTML = '삭제';
 	td.appendChild(btn);
 	tr.appendChild(td);

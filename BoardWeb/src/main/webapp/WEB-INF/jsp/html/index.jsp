@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!-- 요기는 html/index.jsp -->
-<h3>연습.</h3>
+<h3>연습합시다.</h3>
 
 <div id="show"></div>
 <div>
@@ -32,7 +32,7 @@
 			<th>주소</th>
 			<th>키</th>
 			<th>삭제</th>
-			<th><input type="checkbox" name = "ch"></th>
+			<th><input type='checkbox' name = "ch"></th>
 		</tr>
 	</thead>
 <tbody id="list">
