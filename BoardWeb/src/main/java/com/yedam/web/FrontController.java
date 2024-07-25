@@ -23,9 +23,11 @@ import com.yedam.control.LoginForm;
 import com.yedam.control.LogoutControl;
 import com.yedam.control.MemberListControl;
 import com.yedam.control.ModBoardControl;
+import com.yedam.control.RemoveStudent;
 import com.yedam.control.ScriptControl;
 import com.yedam.control.StudentListControl;
 import com.yedam.control.UpdateBoard;
+import com.yedam.control.StudentJson;
 
 /*
  * FrontController 역할은 사용자의 모든 요청을 처리
@@ -61,6 +63,12 @@ public class FrontController extends HttpServlet {
 		
 		//자바스크립트연습
 		map.put("/javascript.do", new ScriptControl());
+		
+		//학생정보를 반환해주는 페이지(json).
+		map.put("/studentJson.do", new StudentJson());
+		
+		//학생정보(학번기준 삭제.)
+		map.put("/removeStudent,do", new RemoveStudent());
 		
 		// 학생목록
 		map.put("/stdList.do", new StudentListControl());
