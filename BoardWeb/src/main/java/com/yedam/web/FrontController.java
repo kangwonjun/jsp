@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.yedam.common.Control;
 import com.yedam.control.ActionControl;
 import com.yedam.control.AddBoardControl;
+import com.yedam.control.AddReplyControl;
 import com.yedam.control.AddStudent;
 import com.yedam.control.BoardControl;
 import com.yedam.control.BoardForm;
@@ -24,7 +25,10 @@ import com.yedam.control.LoginForm;
 import com.yedam.control.LogoutControl;
 import com.yedam.control.MemberListControl;
 import com.yedam.control.ModBoardControl;
+import com.yedam.control.PagingCount;
+import com.yedam.control.RemoveReplyControl;
 import com.yedam.control.RemoveStudent;
+import com.yedam.control.ReplyListControl;
 import com.yedam.control.ScriptControl;
 import com.yedam.control.StudentListControl;
 import com.yedam.control.UpdateBoard;
@@ -76,8 +80,20 @@ public class FrontController extends HttpServlet {
 		
 		// 학생목록
 		map.put("/stdList.do", new StudentListControl());
+		
+		
 		// 태그연습
 		map.put("/action.do", new ActionControl());
+		
+		
+		//페이징을 위한 전체건수
+		map.put("/pagingCount.do", new PagingCount());
+		
+		//댓글파트
+		map.put("/replyList.do", new ReplyListControl());
+		map.put("/addReply.do", new AddReplyControl());
+		map.put("/removeReply.do", new RemoveReplyControl());
+		map.put("/pagingCount.do", new PagingCount());
 	}
 	
 	@Override
