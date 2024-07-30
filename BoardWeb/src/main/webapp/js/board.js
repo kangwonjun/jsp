@@ -41,7 +41,11 @@ document.querySelector('#addReply').addEventListener('click',function(){
 		}
 	});
 });
-// 댓글목록 출력
+// 댓글목록 출력.
+function showPage(){
+	
+}
+
 svc.replyList({bno,page},function(){
 	// 페이지 로드하면서 목록을 출력.
 	let result = JSON.parse(this.response);
@@ -180,6 +184,7 @@ function createPageList(event){
 function pageMove(){
 	document.querySelectorAll('div.reply ul.pagination a')
 	.forEach(item => {
+		// a태그에 클릭이벤트 등록
 		item.addEventListener('click', function(e){
 			page = item.innerHTML;
 			svc.replyList({bno,page},function(){
