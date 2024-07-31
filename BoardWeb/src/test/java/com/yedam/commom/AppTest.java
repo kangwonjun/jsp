@@ -1,19 +1,32 @@
 package com.yedam.commom;
 
-import com.yedam.common.SearchDTO;
-import com.yedam.service.BoardService;
-import com.yedam.service.BoardServiceImpl;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.yedam.service.MemberService;
+import com.yedam.service.MemberServiceImpl;
 
 public class AppTest {
 	public static void main(String[] args) {
-		BoardService svc = new BoardServiceImpl();
+	MemberService svc = new MemberServiceImpl();
+	List<Map<String,Object>> list = svc.getCountByMember();
+	for(Map<String, Object> map : list) {
+		System.out.println("--------------------------");
+		Set<String>keyset = map.keySet();
+		for (String key : keyset) {
+			System.out.println(key + ", " + map.get(key));
+		}
+	}
+	System.out.println("-End-");	
 		
-		SearchDTO search = new SearchDTO();
-		search.setSearchCondition("W");
-		search.setKeyword("user");
-		search.setPage(1);
-		svc.boardList(search).forEach(System.out::println);
-		
+//		
+//		SearchDTO search = new SearchDTO();
+//		search.setSearchCondition("W");
+//		search.setKeyword("user");
+//		search.setPage(1);
+//		svc.boardList(search).forEach(System.out::println);
+//		
 //		svc.boardList(5).forEach(System.out::println);
 		
 		/* mapper 가져오기
