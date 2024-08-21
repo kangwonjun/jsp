@@ -94,8 +94,11 @@ public class FrontController extends HttpServlet {
 		
 		//댓글파트
 		map.put("/replyList.do", new ReplyListControl());
+		
 		map.put("/addReply.do", new AddReplyControl());
+		
 		map.put("/removeReply.do", new RemoveReplyControl());
+		
 		map.put("/pagingCount.do", new PagingCount());
 		
 		

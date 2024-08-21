@@ -28,14 +28,6 @@
 		</ul>
 	</div>
 	<script>
- 	$(document).ready(function(){
- 		//이벤트 등록
-		$('#addBtn').on('click', function(){
-			//요소추가
-		 	let newadd = $('<li />').html($('#userVal').val());	
-			$('#list').append( newadd );
-		})
-
     $(document).ready(function(){
  		//이벤트 등록
 		$('#addBtn').on('click', function(){
@@ -67,8 +59,9 @@
 			$('#list li:gt(2)').css('background','red');
 		})
 		
+		
 	});
- });		
+    
 			
 			
 	</script>
