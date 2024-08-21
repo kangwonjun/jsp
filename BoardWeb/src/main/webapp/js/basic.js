@@ -97,3 +97,4 @@ friends.forEach(function(friends) {
 	}
 	console.log(`------------------`);
 });
+}
