@@ -19,8 +19,8 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BoardVO> boardList(SearchDTO search) {
-//		return mapper.selectList();
-		return mapper.selectListPaging(search);
+		return mapper.selectList();
+//		return mapper.selectListPaging(search);
 	}
 	
 	@Override
@@ -46,6 +46,12 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public BoardVO getBoard(int boardNo) {
 		return mapper.selectBoard(boardNo);
+	}
+
+	@Override
+	public boolean checkSchedule(BoardVO bvo) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

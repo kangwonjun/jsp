@@ -87,4 +87,25 @@
     where board_no = #{boardNo}
   </delete>
   
+  <select id="calendarList" resultType="map">
+  	select title as "title"
+  		   ,start_date as "start"
+  		   ,end_date as "end"
+  	from tbl_schedule	   
+  </select>
+  
+  <insert id="insertSchedule" parameterType="com.yedam.vo.BoardVO">
+  insert into tbl_schedule (title, start_date, end_date)
+  VALUES(#{title}, #{writer}, #{content} )
+  </insert>
+  
+  <select id="selectSchedule" parameterType="com.yedam.vo.BoardVO" resultType="int">
+  select count(1)
+  from tbl_schedule
+  where title = #{title}
+  and start_date = #{writer}
+  and end_date = #{content}
+  </select>
+  
+  
 </mapper>

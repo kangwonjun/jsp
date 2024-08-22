@@ -18,4 +18,5 @@ public interface BoardService {
 	boolean modifyBoard(BoardVO board);
 	boolean removeBoard(int boardNo);
 	BoardVO getBoard(int boardNo);
+	boolean checkSchedule(BoardVO bvo);
 }

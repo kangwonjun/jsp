@@ -14,13 +14,16 @@ import com.yedam.common.Control;
 import com.yedam.control.ActionControl;
 import com.yedam.control.AddBoardControl;
 import com.yedam.control.AddReplyControl;
+import com.yedam.control.AddSchedule;
 import com.yedam.control.AddStudent;
 import com.yedam.control.BoardControl;
 import com.yedam.control.BoardForm;
 import com.yedam.control.BoardListControl;
 import com.yedam.control.CountByMemberControl;
 import com.yedam.control.DelBoardControl;
+import com.yedam.control.DelSchedule;
 import com.yedam.control.DeleteBoard;
+import com.yedam.control.Fullcalendar;
 import com.yedam.control.GoogleChart;
 import com.yedam.control.ImageDownControl;
 import com.yedam.control.LoginControl;
@@ -93,12 +96,13 @@ public class FrontController extends HttpServlet {
 		map.put("/pagingCount.do", new PagingCount());
 		
 		//댓글파트
+		//댓글 목록
 		map.put("/replyList.do", new ReplyListControl());
-		
+		//댓글 등록
 		map.put("/addReply.do", new AddReplyControl());
-		
+		//댓글 삭제
 		map.put("/removeReply.do", new RemoveReplyControl());
-		
+		//댓글 페이지
 		map.put("/pagingCount.do", new PagingCount());
 		
 		
@@ -110,6 +114,13 @@ public class FrontController extends HttpServlet {
 		
 		//차트 페이지.
 		map.put("/googleChart.do", new GoogleChart());
+		
+		//fullcalender 연습.
+		map.put("/fullcalendar.do", new Fullcalendar());
+		// 일정을 등록하는..
+		map.put("/addSchedule.do", new AddSchedule());
+		// 일정을 삭제하는..
+		map.put("/delSchedule.do", new DelSchedule());
 	}
 	
 	@Override

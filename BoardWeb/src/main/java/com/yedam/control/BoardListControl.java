@@ -31,7 +31,6 @@ public class BoardListControl implements Control {
 		req.setAttribute("myName", "홍길동");
 		
 		BoardService svc = new BoardServiceImpl();
-		
 		List<BoardVO> list = svc.boardList(search);
 		req.setAttribute("boardList", list);
 		

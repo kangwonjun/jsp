@@ -18,4 +18,5 @@ public interface BoardMapper {
 	int updateBoard(BoardVO board);
 	int deleteBoard(int boardNo);
 	BoardVO selectBoard(int boardNo);
+	String insertSchedule(String title);
 }
